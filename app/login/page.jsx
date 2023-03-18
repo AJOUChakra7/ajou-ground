@@ -11,9 +11,9 @@ export default function Login() {
         <div>{/* 비율유지용 div */}</div>
         <h1 className="text-4xl font-extrabold">아주그라운드</h1>
         <Link href="/">
-          <button className="m-5 p-5 bg-neutral-200 rounded font-bold text-sm">
+          <div className="m-5 p-5 bg-neutral-200 rounded font-bold text-sm">
             구글 계정으로 로그인
-          </button>
+          </div>
         </Link>
         <footer className="m-3">Team chakra7</footer>
       </div>
