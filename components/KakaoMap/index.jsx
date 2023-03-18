@@ -2,7 +2,8 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 export default function KakaoMap() {
   return (
-    <Map center={{ lat: 37.280892, lng: 127.045464 }} style={{ width: '100%', height: '360px' }}>
+    <div className="rounded-2xl overflow-hidden">
+      <Map center={{ lat: 37.280892, lng: 127.045464 }} style={{  width: '100%', height: '360px' }}>
       <MapMarker position={{ lat: 37.280791, lng: 127.044454 }}>
         <div style={{ color: '#000' }}>대운동장</div>
       </MapMarker>
@@ -16,5 +17,6 @@ export default function KakaoMap() {
         <div style={{ color: '#000' }}>테니스장</div>
       </MapMarker>
     </Map>
+    </div>
   );
 }
