@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
 import { Inter } from 'next/font/google';
@@ -8,19 +8,26 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <main>
-      <h2>이용 현황</h2>
-      <div className="m-3 grid grid-cols-2">
-        <PlaceStatusBox title="대운동장" status={1} />
-        <PlaceStatusBox title="소운동장" status={0} />
-        <PlaceStatusBox title="헬스장" status={0} />
-        <PlaceStatusBox title="테니스장" status={2} />
+    <main className="px-10 pt-20">
+      <div className="my-10">
+        <h2 className="font-bold my-3">이용 현황</h2>
+        <div className="grid grid-cols-2 gap-2 my-3">
+          <PlaceStatusBox title="대운동장" status={1} />
+          <PlaceStatusBox title="소운동장" status={0} />
+          <PlaceStatusBox title="헬스장" status={0} />
+          <PlaceStatusBox title="테니스장" status={2} />
+        </div>
       </div>
-      <h2>장소 예약</h2>
-      <LinkBox title="대운동장" icon="noto-v1:soccer-ball" />
-      <LinkBox title="소운동장" icon="noto-v1:soccer-ball" />
-      <LinkBox title="헬스장" icon="map:gym" />
-      <LinkBox title="테니스장" icon="openmoji:tennis"/>
+
+      <div className="my-10">
+        <h2 className="font-bold my-3">장소 예약</h2>
+        <div className="my-3 flex flex-col gap-4">
+          <LinkBox title="대운동장" icon="noto-v1:soccer-ball" />
+          <LinkBox title="소운동장" icon="noto-v1:soccer-ball" />
+          <LinkBox title="헬스장" icon="map:gym" />
+          <LinkBox title="테니스장" icon="openmoji:tennis" />
+        </div>
+      </div>
     </main>
   );
 }
