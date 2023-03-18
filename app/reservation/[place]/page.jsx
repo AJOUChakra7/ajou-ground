@@ -6,9 +6,7 @@ import axios from 'axios';
 import ReservationBtn from 'components/ReservationBtn/index';
 import ImgAndDesc from 'components/ImgAndDesc/index';
 
-import { Icon } from '@iconify/react';
-import Link from 'node_modules/next/link';
-
+import Header from '@components/Header/index';
 import Modal from '@components/Modal/index';
 import placeToKorean from '../../../functions/placeToKorean';
 import useModal from '@components/Modal/useModal';
@@ -106,7 +104,7 @@ export default function Reservation({ params }) {
 
   return (
     <>
-    <main>
+    <main className="pt-8">
       <Modal 
         title="예약 정보가 맞나요?"
         subtitle="대운동장"
@@ -117,20 +115,17 @@ export default function Reservation({ params }) {
         reservation();
         window.location.replace('/');
       }} />
-      <div className="">
-        <Link href="/" className="text-2xl font-bold">
-          <Icon icon="material-symbols:arrow-back-ios-rounded" width={18} height={18} />
-        </Link>
-      </div>
+      <Header />
       <ImgAndDesc
         imgURL={`../${params.place}.jpeg`}
         title={placeInKorean}
         desc={`아주대학교 ${placeInKorean}`}
       />
+      
       <Group position="center">
         <DatePicker value={value} onChange={setValue} />
       </Group>
-      <div className="shadow">
+      <div className="">
         <h2 className="my-4 mt-8 font-bold text-lg">시간 예약</h2>
         <div className="grid grid-cols-2 gap-3">
           {}
