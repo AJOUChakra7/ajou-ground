@@ -1,5 +1,6 @@
 'use client';
 
+import Header from '@components/Header/index';
 import MyHistoryDisplayCard from 'components/MyHistoryDisplayCard/index';
 import MyReservationDisplayCard from 'components/MyReservationDisplayCard/index';
 import { Icon } from '@iconify/react';
@@ -40,20 +41,18 @@ export default function Notice() {
   ];
   return (
     <>
-      <main className="pt-4 bg-[#fafafa] overflow-scroll">
-        <Link href="/" className="text-2xl font-bold">
-          <Icon icon="material-symbols:arrow-back-ios-rounded" width={18} height={18} />
-        </Link>
-        <div>
-          <h2 className="font-bold text-lg my-5">예약현황</h2>
-          <MyReservationDisplayCard reservationDataList={reservationList} />
-          <hr className="rounded-full my-5 border-2 border-primary-main w-10 text-center mx-auto"></hr>
-          <h2 className="font-bold text-lg my-5">사용이력</h2>
-          <MyHistoryDisplayCard reservationHistoryList={exampleReservationHistoryList} />
-        </div>
-        <div className="h-24">{/* footer랑 안 겹치게 밑에 공간 좀 주기 */}</div>
-      </main>
-      <Footer />
+
+    <main className="bg-[#fafafa] pt-10">
+      <Header />
+      <div>
+        <h2 className="font-bold text-lg my-5">예약현황</h2>
+        <MyReservationDisplayCard reservationDataList={reservationList} />
+        <hr className="rounded-full my-5 border-2 border-primary-main w-10 text-center mx-auto"></hr>
+        <h2 className="font-bold text-lg my-5">사용이력</h2>
+        <MyHistoryDisplayCard reservationHistoryList={exampleReservationHistoryList} />
+      </div>
+    </main>
+    <Footer/>
     </>
   );
 }

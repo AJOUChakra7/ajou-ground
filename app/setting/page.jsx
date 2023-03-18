@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'node_modules/next/link';
-import { Icon } from '@iconify/react';
 import Footer from 'components/Footer';
+import Header from '@components/Header/index';
 
 const buttonWrapper =
   'bg-white rounded my-5 shadow p-4 hover:cursor-pointer active:animate-pull transition-[0.35s] active:opacity-80';
@@ -11,10 +11,8 @@ const buttonFont = 'font-medium text-base';
 export default function Setting() {
   return (
     <>
-      <main className="pt-4 bg-[#fafafa]">
-        <Link href="/" className="text-2xl font-bold">
-          <Icon icon="material-symbols:arrow-back-ios-rounded" width={18} height={18} />
-        </Link>
+      <main className="pt-10 bg-[#fafafa]">
+        <Header />
         <div>
           <h2 className="font-bold text-lg my-5">내 정보</h2>
           <div className="bg-white rounded my-5 shadow p-4">

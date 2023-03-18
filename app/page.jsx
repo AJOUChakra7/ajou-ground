@@ -9,7 +9,7 @@ import ToastMessage from '@components/Toast/index';
 
 export default function Home() {
   const [loadingState, setLoadingState] = useState(true);
-  const successReservationState = localStorage.getItem('reservationState');
+  const successReservationState = localStorage.getItem('reservationState') ?? false;
 
   useEffect(() => {
     setTimeout(() => {
