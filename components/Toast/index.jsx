@@ -68,6 +68,8 @@ export const ToastContainer = styled.div`
   align-items: center;
   gap: 1rem;
 
+  z-index : 9999;
+
   opacity: 0;
   margin: 0 auto;
   padding: 0.6rem 2rem 0.6rem 1.75rem;

@@ -20,7 +20,7 @@ export default function Location() {
       <main className="pt-8">
         <Header />
          <span className="mx-auto">
-          <Lottie loop animationData={locationJson} style={{ margin : "0 auto", width : 100, height : 100}} play />;
+          <Lottie loop animationData={locationJson} style={{ margin : "0 auto", width : 100, height : 100}} play />
         </span>
         <KakaoMap />
         <h2 className="text-center text-primary-main text-[18px] pt-6">교내에 있는 운동 시설 위치에요!</h2>
