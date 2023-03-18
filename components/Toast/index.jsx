@@ -2,49 +2,53 @@
 
 import { Icon } from '@iconify/react';
 import { useState, useCallback, useEffect, useRef } from 'react';
-import useToastMessage from './hooks/useToastMessage';
 import { toastConfig } from '@styles/config';
 import styled from 'styled-components';
 
-const toast = {
-  message : '메세지 입니다',
-  type : 'success',
-}
 
-export const ToastMessage= () => {
-  const { closeToastMessage } = useToastMessage();
+//
+// message : 상태 메세지 입력
+// type : 'warn, error, success' 세 가지 타입 존재
+// 1.5초 동안 위에 띄워집니다
+//
+
+export const ToastMessage= (props) => {
+  const { message, type } = props; 
+
   const toastId = useRef(null);
   const [animationState, setAnimationState] = useState('fadeIn');
-  const isType = toastConfig.filter((e) => e.type === toast.type);
+  const [messageState, setMessageState] = useState(false);
+  const isType = toastConfig.filter((e) => e.type === type);
 
   const removeToast = useCallback(() => {
     if (toastId.current) clearTimeout(toastId.current);
     setAnimationState('fadeOut');
     setTimeout(() => {
-      closeToastMessage();
+      setMessageState(false);
       setAnimationState('fadeIn');
     }, 350);
-  }, [toast.message, toast.type]);
+  }, [message, type]);
 
   useEffect(() => {
-    if (toast.message === '') return;
+    if (message === '') return;
     if (toastId.current) clearTimeout(toastId.current);
 
+    setMessageState(true);
     toastId.current = setTimeout(() => {
       removeToast();
-    }, toast.timeout);
-  }, [toast.message]);
+    }, 1500);
+  }, [message]);
 
   return (
-      <>
-      {toast.message && (
+    <>
+      {messageState && (
         <ToastContainer
           onClick={() => removeToast()}
           animation={animationState}
           color={isType[0].color}
         >
           <Icon icon={isType[0].icon} width="36" height="36" color={isType[0].color} />
-          <p>{toast.message}</p>
+          <span>{message}</span>
         </ToastContainer>
       )}
     </>
