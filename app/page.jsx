@@ -5,8 +5,6 @@ import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
 import Footer from 'components/Footer';
 
-import Image from 'node_modules/next/image';
-
 import { useEffect, useState } from 'react';
 import Spinner from '@components/Spinner/index';
 import ToastMessage from '@components/Toast/index';

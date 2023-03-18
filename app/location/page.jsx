@@ -6,6 +6,10 @@ import Footer from '@components/Footer/index';
 import Script from 'next/script';
 import Header from '@components/Header/index';
 
+
+import Lottie from "react-lottie-player";
+import locationJson from "../../public/location.json";
+
 export default function Location() {
   return (
     <>
@@ -13,10 +17,13 @@ export default function Location() {
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f7da64a90767677a5c9a7b39da61bab2&libraries=services,clusterer&autoload=false"
         type="text/javascript"
       />
-      <main className="pt-16">
+      <main className="pt-8">
         <Header />
-        <h2 className="font-bold text-[20px] pb-2">운동 시설 위치</h2>
+         <span className="mx-auto">
+          <Lottie loop animationData={locationJson} style={{ margin : "0 auto", width : 100, height : 100}} play />;
+        </span>
         <KakaoMap />
+        <h2 className="text-center text-primary-main text-[18px] pt-6">교내에 있는 운동 시설 위치에요!</h2>
       </main>
       <Footer />
     </>
