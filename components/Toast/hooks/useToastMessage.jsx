@@ -1,9 +1,13 @@
-import { useRecoilState } from 'recoil';
-import { setToastState } from '@/Utils/Stores/Recoil/toast';
-import { useCallback } from 'react';
+'use client'
+import { useCallback, useState } from 'react';
 
 export default function useToastMessage(timeout) {
-  const [toast, setToast] = useRecoilState(setToastState);
+  const [toast, setToast] = useState(
+    {
+      meesage : '메세지 입니다',
+      type : 'success'
+    }
+  );
 
   const openToastMessage = useCallback(
     (message, type) => {

@@ -3,9 +3,9 @@
     "baseUrl": ".",
     "target": "es6",
     "paths": {
-      "@/*": ["./app"],
-      "@styles/*": ["./styles"],
-      "@components/*": ["./components"]
+      "@/*": ["./app/*"],
+      "@styles/*": ["./styles/*"],
+      "@components/*": ["./components/*"]
     }
   }
 }

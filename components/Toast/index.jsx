@@ -1,3 +1,5 @@
+'use client'
+
 import { Icon } from '@iconify/react';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import useToastMessage from './hooks/useToastMessage';
@@ -10,8 +12,8 @@ const toast = {
 
 export const ToastMessage= () => {
   const { closeToastMessage } = useToastMessage();
-  const toastId = useRef<null | ReturnType<typeof setTimeout>>(null);
-  const [animationState, setAnimationState] = useState<string>('fadeIn');
+  const toastId = useRef(null);
+  const [animationState, setAnimationState] = useState('fadeIn');
   const isType = toastConfig.filter((e) => e.type === toast.type);
 
   const removeToast = useCallback(() => {

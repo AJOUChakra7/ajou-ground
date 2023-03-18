@@ -5,8 +5,8 @@ export default function Home() {
     <>
     <main>
       ajouground 입니다
-    </main>
     <Toast />
+    </main>
     </>
   )
 }
