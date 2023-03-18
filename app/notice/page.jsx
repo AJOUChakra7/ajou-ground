@@ -1,10 +1,9 @@
+'use client';
+
 import MyHistoryDisplayCard from 'components/MyHistoryDisplayCard/index';
 import MyReservationDisplayCard from 'components/MyReservationDisplayCard/index';
+import { Icon } from '@iconify/react';
 import Link from 'node_modules/next/link';
-
-export const metadata = {
-  title: '아주그라운드',
-};
 
 export default function Notice() {
   // 예시 API 데이터
@@ -21,14 +20,14 @@ export default function Notice() {
     },
   ];
   return (
-    <main>
+    <main className="pt-4 bg-[#fafafa]">
       <Link href="/" className="text-2xl font-bold">
-        {'<'}
+        <Icon icon="material-symbols:arrow-back-ios-rounded" width={18} height={18} />
       </Link>
-      <div className="px-10 py-5">
+      <div>
         <h2 className="font-bold text-lg my-5">예약현황</h2>
         <MyReservationDisplayCard reservationDataList={exampleReservationDataList} />
-        <hr className="my-5 border-2 border-blue-800 w-10 text-center mx-auto"></hr>
+        <hr className="rounded-full my-5 border-2 border-primary-main w-10 text-center mx-auto"></hr>
         <h2 className="font-bold text-lg my-5">사용이력</h2>
         <MyHistoryDisplayCard />
       </div>
