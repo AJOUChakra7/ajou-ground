@@ -23,8 +23,15 @@ main {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 10px 30px 0px;
   height : var(--vh);
   max-height : var(--vh);
+
+  overflow-y : scroll;
   
-  padding : 0 1rem;
+  padding : 1rem;
+  padding-bottom : 6rem;
+}
+
+main::-webkit-scrollbar {
+  display: none;
 }
 
 :root {

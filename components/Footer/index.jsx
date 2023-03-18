@@ -3,7 +3,7 @@ import Link from 'node_modules/next/link';
 
 export default function Footer() {
   return (
-    <footer className="h-[3.875rem] fixed z-9999 flex justify-around gap-2 items-center text-center bottom-0 py-4 w-full shadow-[0_-2px_10px_rgba(0,0,0,0.10)] full:w-[25rem]">
+    <footer className="h-[3.875rem] bg-white fixed z-9999 flex justify-around gap-2 items-center text-center bottom-0 py-4 w-full shadow-[0_-2px_10px_rgba(0,0,0,0.10)] full:w-[25rem]">
       <Link href="/location">
         <div className="transition-0.35s active:bg-gray-100 px-4 py-2 rounded-md active:opacity-80 active:animate-pull hover:cursor-pointer items-center flex flex-col gap-1">
           <Icon icon="material-symbols:location-on" height="18" width="18" />
