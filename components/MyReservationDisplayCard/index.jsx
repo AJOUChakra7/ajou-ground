@@ -1,15 +1,17 @@
 export default function MyReservationDisplayCard({ reservationDataList }) {
+  console.log(reservationDataList)
+  const date = String(reservationDataList).slice(0,10)
   return (
     <div>
       {/* 예약한 것이 있을때 */}
       {reservationDataList.map((oneReservationData, index) => {
         return (
-          <div className="rounded my-3 shadow p-4" id={index}>
-            <h2 className="font-bold text-lg text-blue-900">{oneReservationData.place}</h2>
+          <div key={oneReservationData.id} className="rounded my-3 shadow p-4" id={index}>
+            <h2 className="font-bold text-lg text-blue-900">{oneReservationData.ground.name}</h2>
             <h3>
-              {oneReservationData.time}:00 ~ {oneReservationData.time + 3}:00
+              {String(oneReservationData.startTime).slice(11,13)}:00 ~ {Number(String(oneReservationData.startTime).slice(11,13)) + 3}:00
             </h3>
-            <p className="text-sm text-neutral-600">{oneReservationData.date}</p>
+            <p className="text-sm text-neutral-600">{String(oneReservationData.startTime).slice(0,10)}</p>
           </div>
         );
       })}

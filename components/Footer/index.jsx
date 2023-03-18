@@ -10,7 +10,7 @@ export default function Footer() {
           <span>장소</span>
         </div>
       </Link>
-      <Link className="transition-0.35s shadow-xl active:bg-primary-lightdark hover:cursor-pointer active:animate-pull bg-primary-main rounded-full p-4 px-7 fixed bottom-0 flex flex-col gap-2" href="/reservation">
+      <Link className="transition-0.35s shadow-xl active:bg-primary-lightdark hover:cursor-pointer active:animate-pull bg-primary-main rounded-full p-4 px-7 fixed bottom-0 flex flex-col gap-2" href="/">
           <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1_260)">
             <path d="M9.17278 0L0.989564 11.7269C0.405797 12.5326 0.0642445 13.4819 0.00351149 14.4674C-0.0572215 15.4528 0.165285 16.4353 0.64588 17.3037L4.91229 23.7318C5.14707 24.1083 5.4744 24.4215 5.86453 24.643C6.25466 24.8645 6.69524 24.9872 7.14624 25H10.346C10.0176 24.8643 9.73301 24.6441 9.52239 24.363L4.78193 17.211C4.33041 16.4666 4.08343 15.6208 4.06494 14.7556C4.13207 14.0104 4.37112 13.2897 4.76415 12.6477L9.22611 6.10958L14.488 14.136C14.656 14.3658 14.7463 14.6411 14.7463 14.9236C14.7463 15.206 14.656 15.4813 14.488 15.7111C14.488 15.7111 14.0969 16.1049 13.1311 15.798L14.9739 18.5777C15.0793 18.7101 15.2128 18.8185 15.3652 18.8955C15.5177 18.9725 15.6854 19.0162 15.8568 19.0236C16.0059 19.0073 16.1498 18.9607 16.2793 18.8869C16.4089 18.8131 16.5213 18.7137 16.6094 18.5951L17.9782 16.435C17.9782 16.435 18.9796 15.1436 17.9249 13.1399L9.17278 0Z" fill="white"/>
@@ -22,7 +22,7 @@ export default function Footer() {
             </clipPath>
             </defs>
           </svg>
-          <p className="text-white">예약</p>
+          <p className="text-white">홈</p>
       </Link>
       <Link href="/setting">
         <div className="transition-0.35s active:bg-gray-100 px-4 py-2 rounded-md active:opacity-80 hover:cursor-pointer active:animate-pull items-center flex flex-col gap-1">
