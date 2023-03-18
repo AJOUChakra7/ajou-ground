@@ -45,7 +45,6 @@ export default function Reservation({ params }) {
         ground:  "대운동장",
       })
       .then((response) => {
-        console.log(response);
         setReserveComplete(true)
       });
   };
@@ -69,14 +68,14 @@ export default function Reservation({ params }) {
     if (m < 10) {
       m = '0' + m;
     }
+    setSelectedTime(null);
     setGetTime(`${y}-${m}-${d}`);
   }, [value]);
 
   useEffect(() => {
+    if (getTime == null) return;
     //getTime이 변경 되면 API 호출
-    if (getTime != null) {
       getDatereservation();
-    }
   }, [getTime]);
 
   useEffect(() => {
@@ -124,7 +123,6 @@ export default function Reservation({ params }) {
       <div className="">
         <h2 className="my-4 mt-8 font-bold text-lg">시간 예약</h2>
         <div className="grid grid-cols-2 gap-3">
-          {}
           <ReservationBtn
             time="09:00~12:00"
             status={nine}
@@ -158,7 +156,7 @@ export default function Reservation({ params }) {
     </main>
     <div className="fixed bottom-0 flex w-full full:w-[25rem]">
       <button 
-        disabled={!!reserveTime=="Invalid Date"} 
+        disabled={reserveTime=="Invalid Date"} 
         onClick={openModal}
         className={reserveTime!="Invalid Date" ? "bg-blue-600 w-full h-10 mt-3 text-center text-white text-lg font-bold":" bg-neutral-200 w-full h-10 mt-3 text-center text-white text-lg font-bold"}>
         예약하기
