@@ -11,7 +11,21 @@ import Modal from '@components/Modal/index';
 import placeToKorean from '../../../functions/placeToKorean';
 import useModal from '@components/Modal/useModal';
 
+import {useLocation} from 'react';
+
 export default function Reservation({ params }) {
+  const path = params.place;
+  const isLocation = () => {
+    if (path === 'big-ground')
+      return '대운동장';
+    if (path === 'small-ground')
+      return '소운동장';
+    if (path === 'health-gym')
+      return '헬스장';
+    if (path === 'tennis')
+      return '테니스장';
+  }
+
   const [value, setValue] = useState(new Date()); //오늘 날짜로 처음 세팅
   const [nine, setNine] = useState(true);
   const [twelve, setTwelve] = useState(true);
@@ -103,7 +117,7 @@ export default function Reservation({ params }) {
       <main className="pt-8">
         <Modal
           title="예약 정보가 맞나요?"
-          subtitle="대운동장"
+          subtitle={isLocation()}
           subtitle2={`${selectedTime}시~${selectedTime + 3}시 `}
           subtitle3={getTime}
           selected={() => {
