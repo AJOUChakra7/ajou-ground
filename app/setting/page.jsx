@@ -1,15 +1,12 @@
-'use client'
+'use client';
 
 import Link from 'node_modules/next/link';
 import { Icon } from '@iconify/react';
-import Footer from 'components/Footer'
+import Footer from 'components/Footer';
 
-export const metadata = {
-  title: '아주그라운드: 설정',
-};
-
-const buttonWrapper = 'bg-white rounded my-5 shadow p-4 hover:cursor-pointer active:animate-pull transition-[0.35s] active:opacity-80'
-const buttonFont = 'font-medium text-base'
+const buttonWrapper =
+  'bg-white rounded my-5 shadow p-4 hover:cursor-pointer active:animate-pull transition-[0.35s] active:opacity-80';
+const buttonFont = 'font-medium text-base';
 
 export default function Setting() {
   return (
@@ -26,9 +23,9 @@ export default function Setting() {
             <div className="h-20">{/* placeholder */}</div>
           </div>
           <hr className="rounded-full my-5 border-2 border-primary-main w-10 text-center mx-auto"></hr>
-          <Link href="/reservation">
+          <Link href="/notice">
             <div className={buttonWrapper}>
-            <h3 className={buttonFont}>예약현황</h3>
+              <h3 className={buttonFont}>예약현황</h3>
             </div>
           </Link>
           <Link href="/login">
