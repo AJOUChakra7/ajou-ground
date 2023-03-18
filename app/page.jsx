@@ -3,16 +3,13 @@
 import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
 import { Inter } from 'next/font/google';
-import { Icon } from '@iconify/react';
 import Footer from 'components/Footer'
-import Spinner from '@components/Spinner';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
     <>
-    <Spinner />
     <main className="bg-[#fafafa]">
       <div className="my-10">
         <h2 className="font-bold my-3">이용 현황</h2>

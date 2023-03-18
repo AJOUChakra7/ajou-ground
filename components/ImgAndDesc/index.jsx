@@ -1,6 +1,6 @@
 export default function ImgAndDesc({ imgURL, title, desc }) {
   return (
-    <div className="my-10 shadow">
+    <div className="my-5 mb-10 shadow">
       <img className="rounded-t-xl" src={imgURL} alt={title + ' 사진'} width="100%"></img>
       <div className="p-4">
         <h2 className="font-bold text-lg">{title}</h2>
