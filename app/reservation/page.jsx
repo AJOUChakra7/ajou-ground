@@ -67,10 +67,6 @@ export default function Reservation() {
     if (m<10){
       m = "0" + m
     }
-    setNine(true)
-    setSix(true)
-    setThree(true)
-    setTwelve(true)
     setGetTime(`${y}-${m}-${d}`)
   }, [value]);
 
