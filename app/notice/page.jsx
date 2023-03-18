@@ -9,20 +9,17 @@ import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Footer from '@components/Footer/index';
 export default function Notice() {
-  const [reservationList, setreservationList] = useState([])
-  const outerDivRef = useRef()
+  const [reservationList, setreservationList] = useState([]);
+  const outerDivRef = useRef();
   const getreservationlist = async () => {
-    await axios
-      .get("/api/user")
-      .then((response) => {
-        setreservationList(response.data.reservations)
-      });
+    await axios.get('/api/user').then((response) => {
+      setreservationList(response.data.reservations);
+    });
   };
-  useEffect(() => { 
-    getreservationlist()
-    console.log(reservationList)
+  useEffect(() => {
+    getreservationlist();
+    console.log(reservationList);
   }, []);
-
 
   // 예시 사용기록 데이터
   const exampleReservationHistoryList = [
@@ -44,6 +41,7 @@ export default function Notice() {
   ];
   return (
     <>
+
     <main className="bg-[#fafafa] pt-10">
       <Header />
       <div>
