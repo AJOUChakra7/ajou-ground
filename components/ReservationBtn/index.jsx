@@ -7,7 +7,7 @@ export default function ReservationBtn({ time, status, selected, value, setSelec
         onClick={() => setSelectedTime(value)}
         className={`rounded-lg p-3 ${
           status == true && selected == true
-            ? 'bg-blue-600 text-white'
+            ? 'bg-primary-main text-white'
             : status == true && selected == false
             ? 'bg-sky-50 border-2 border-blue-500'
             : 'bg-neutral-200'

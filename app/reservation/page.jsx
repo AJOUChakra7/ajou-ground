@@ -94,6 +94,7 @@ export default function Reservation() {
   }, [reserveTime]);  
 
   return (
+    <>
     <main>
       <Modal 
         title="예약 정보가 맞나요?"
@@ -148,12 +149,15 @@ export default function Reservation() {
         />
       </div>
       </div>
+    </main>
+    <div className="fixed bottom-0 flex w-full full:w-[25rem]">
       <button 
-        disabled={reserveTime!="Invalid Date"?false:true} 
+        disabled={!!reserveTime=="Invalid Date"} 
         onClick={openModal}
-        className={reserveTime!="Invalid Date"?"rounded-lg bg-blue-600 w-full h-10 mt-3 text-center text-white text-lg font-bold":"rounded-lg bg-neutral-200 w-full h-10 mt-3 text-center text-white text-lg font-bold"}>
+        className={reserveTime!="Invalid Date" ? "bg-blue-600 w-full h-10 mt-3 text-center text-white text-lg font-bold":"rounded-lg bg-neutral-200 w-full h-10 mt-3 text-center text-white text-lg font-bold"}>
         예약하기
       </button>
-    </main>
+    </div>
+    </>
   );
 }
