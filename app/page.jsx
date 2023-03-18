@@ -19,7 +19,6 @@ export default function Home() {
 
   return (
     <>
-<<<<<<< HEAD
     {loadingState && (<Spinner/>)}
     {!loadingState && successReservationState && (<ToastMessage message="예약이 완료되었습니다" type="success" />)}
     <main className="bg-[#fafafa]">
@@ -30,18 +29,7 @@ export default function Home() {
           <PlaceStatusBox title="소운동장" status={0} />
           <PlaceStatusBox title="헬스장" status={0} />
           <PlaceStatusBox title="테니스장" status={2} />
-=======
-      {loadingState && <Spinner />}
-      <main className="bg-[#fafafa]">
-        <div className="my-10">
-          <h2 className="font-bold my-3">이용 현황</h2>
-          <div className="grid grid-cols-2 gap-2 my-3">
-            <PlaceStatusBox title="대운동장" status={1} />
-            <PlaceStatusBox title="소운동장" status={0} />
-            <PlaceStatusBox title="헬스장" status={0} />
-            <PlaceStatusBox title="테니스장" status={2} />
-          </div>
->>>>>>> main
+        </div>
         </div>
 
         <div className="my-10">
