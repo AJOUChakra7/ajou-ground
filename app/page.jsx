@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-sync-scripts */
+/* eslint-disable react/jsx-no-comment-textnodes */
 'use client';
 import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
@@ -9,11 +11,10 @@ import ToastMessage from '@components/Toast/index';
 
 export default function Home() {
   const [loadingState, setLoadingState] = useState(true);
-  const [successReservationState,setsuccessReservationState] = useState(null)
-
+  const [successReservationState, setsuccessReservationState] = useState(null);
 
   useEffect(() => {
-    setsuccessReservationState(localStorage.getItem('reservationState'))
+    setsuccessReservationState(localStorage.getItem('reservationState'));
     setTimeout(() => {
       setLoadingState(false);
     }, 100 * Math.floor(Math.random() * 20));
@@ -21,17 +22,23 @@ export default function Home() {
 
   return (
     <>
-    {loadingState && (<Spinner/>)}
-    {!loadingState && successReservationState && (<ToastMessage message="예약이 완료되었습니다" type="success" />)}
-    <main className="bg-[#fafafa]">
-      <div className="my-10">
-        <h2 className="font-bold my-3">이용 현황</h2>
-        <div className="grid grid-cols-2 gap-2 my-3">
-          <PlaceStatusBox title="대운동장" status={1} />
-          <PlaceStatusBox title="소운동장" status={0} />
-          <PlaceStatusBox title="헬스장" status={0} />
-          <PlaceStatusBox title="테니스장" status={2} />
-        </div>
+      <script
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f7da64a90767677a5c9a7b39da61bab2&libraries=services,clusterer&autoload=false"
+        type="text/javascript"
+      />
+      {loadingState && <Spinner />}
+      {!loadingState && successReservationState && (
+        <ToastMessage message="예약이 완료되었습니다" type="success" />
+      )}
+      <main className="bg-[#fafafa]">
+        <div className="my-10">
+          <h2 className="font-bold my-3">이용 현황</h2>
+          <div className="grid grid-cols-2 gap-2 my-3">
+            <PlaceStatusBox title="대운동장" status={1} />
+            <PlaceStatusBox title="소운동장" status={0} />
+            <PlaceStatusBox title="헬스장" status={0} />
+            <PlaceStatusBox title="테니스장" status={2} />
+          </div>
         </div>
 
         <div className="my-10">
