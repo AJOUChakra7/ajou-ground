@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import useToastMessage from './hooks/useToastMessage';
 import { toastConfig } from '@styles/config';
+import style from './style.module.css';
 
 const toast = {
   message : '메세지 입니다',
@@ -35,16 +36,12 @@ export const ToastMessage= () => {
   }, [toast.message]);
 
   return (
-    <>
-      <section className=""
+      <div className={style.wrapper}
         onClick={() => removeToast()}
-        animation={animationState}
-        color={isType[0].color}
       >
         <Icon icon={isType[0].icon} width="36" height="36" color={isType[0].color} />
         <p>{toast.message}</p>
-      </section>
-    </>
+      </div>
   );
 };
 

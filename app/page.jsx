@@ -1,12 +1,12 @@
-import Toast from "components/Toast/index"
+import ToastMessage from "components/Toast/index"
 
 export default function Home() {
   return (
     <>
-    <main>
-      ajouground 입니다
-    <Toast />
-    </main>
+      <main>
+        <ToastMessage />
+        ajouground 입니다
+      </main>
     </>
   )
 }
