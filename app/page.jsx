@@ -1,12 +1,13 @@
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Toast from "components/Toast/index"
 
 export default function Home() {
   return (
+    <>
     <main>
       ajouground 입니다
     </main>
+    <Toast />
+    </>
   )
 }
 

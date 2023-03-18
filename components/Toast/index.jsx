@@ -1,14 +1,15 @@
 import { Icon } from '@iconify/react';
-import { useRecoilValue } from 'recoil';
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { setToastState } from '@/Utils/Stores/Recoil/toast';
-import useToastMessage from '@/Utils/Hooks/useToastMessage';
-import { toastConfig } from '@/Utils/Stores/config';
-import { ToastContainer } from './style';
+import useToastMessage from './hooks/useToastMessage';
+import { toastConfig } from '@styles/config';
+
+const toast = {
+  message : '메세지 입니다',
+  type : 'success',
+}
 
 export const ToastMessage= () => {
   const { closeToastMessage } = useToastMessage();
-  const toast = useRecoilValue(setToastState);
   const toastId = useRef<null | ReturnType<typeof setTimeout>>(null);
   const [animationState, setAnimationState] = useState<string>('fadeIn');
   const isType = toastConfig.filter((e) => e.type === toast.type);
@@ -33,16 +34,14 @@ export const ToastMessage= () => {
 
   return (
     <>
-      {toast.message && (
-        <ToastContainer
-          onClick={() => removeToast()}
-          animation={animationState}
-          color={isType[0].color}
-        >
-          <Icon icon={isType[0].icon} width="36" height="36" color={isType[0].color} />
-          <caption>{toast.message}</caption>
-        </ToastContainer>
-      )}
+      <section className=""
+        onClick={() => removeToast()}
+        animation={animationState}
+        color={isType[0].color}
+      >
+        <Icon icon={isType[0].icon} width="36" height="36" color={isType[0].color} />
+        <p>{toast.message}</p>
+      </section>
     </>
   );
 };

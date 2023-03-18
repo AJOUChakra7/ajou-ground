@@ -2,8 +2,6 @@ import { useRecoilState } from 'recoil';
 import { setToastState } from '@/Utils/Stores/Recoil/toast';
 import { useCallback } from 'react';
 
-
-
 export default function useToastMessage(timeout) {
   const [toast, setToast] = useRecoilState(setToastState);
 
