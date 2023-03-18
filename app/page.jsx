@@ -37,7 +37,7 @@ export default function Home() {
       )}
       <main className="bg-[#fafafa]">
         <span className="mx-auto">
-          <Lottie loop animationData={weightJson} style={{ margin : "0 auto", width : 100, height : 100}} play />;
+          <Lottie loop animationData={weightJson} style={{ margin : "0 auto", width : 100, height : 100}} play />
         </span>
         <div className="">
           <h2 className="font-bold my-3">이용 현황</h2>
