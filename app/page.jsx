@@ -3,12 +3,14 @@ import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
 import { Inter } from 'next/font/google';
 import { Icon } from '@iconify/react';
+import Footer from 'components/Footer'
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <main className="px-10 pt-20">
+    <>
+    <main className="bg-[#fafafa]">
       <div className="my-10">
         <h2 className="font-bold my-3">이용 현황</h2>
         <div className="grid grid-cols-2 gap-2 my-3">
@@ -29,6 +31,8 @@ export default function Home() {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }
 
