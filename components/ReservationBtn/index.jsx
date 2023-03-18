@@ -3,7 +3,7 @@ import Link from 'node_modules/next/link';
 export default function ReservationBtn({ time, status, selected, value, setSelectedTime }) {
   return (
       <button
-        disabled = {status == true ? false:true}
+        disabled = {!status}
         onClick={() => setSelectedTime(value)}
         className={`rounded-lg p-3 ${
           status == true && selected == true
