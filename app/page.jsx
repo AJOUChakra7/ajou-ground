@@ -1,6 +1,8 @@
+'use client'
 import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
 import { Inter } from 'next/font/google';
+import { Icon } from '@iconify/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,10 +17,10 @@ export default function Home() {
         <PlaceStatusBox title="테니스장" status={2} />
       </div>
       <h2>장소 예약</h2>
-      <LinkBox title="대운동장" />
-      <LinkBox title="소운동장" />
-      <LinkBox title="헬스장" />
-      <LinkBox title="테니스장" />
+      <LinkBox title="대운동장" icon="noto-v1:soccer-ball" />
+      <LinkBox title="소운동장" icon="noto-v1:soccer-ball" />
+      <LinkBox title="헬스장" icon="map:gym" />
+      <LinkBox title="테니스장" icon="openmoji:tennis"/>
     </main>
   );
 }
