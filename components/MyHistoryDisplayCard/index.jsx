@@ -1,10 +1,14 @@
 export default function MyHistoryDisplayCard({ reservationHistoryList }) {
   return (
-    <div className="rounded my-3 shadow p-4">
+    <div className="rounded my-3 shadow p-4 bg-white">
       {/* 사용기록이 있을때 */}
       {reservationHistoryList.map((oneReservationHistory, index) => {
         return (
+<<<<<<< HEAD
+          <div id={index} key={index}>
+=======
           <div key = {oneReservationHistory.place} id={index}>
+>>>>>>> main
             <h2 className="font-bold text-lg text-blue-900">{oneReservationHistory.place}</h2>
             <h3>
               {oneReservationHistory.time}:00 ~ {oneReservationHistory.time + 3}:00
