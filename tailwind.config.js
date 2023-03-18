@@ -41,6 +41,22 @@ module.exports = {
         success: '#47C753',
       },
       keyframes: {
+        fadeIn: {
+          'from': {
+            transform: 'translateY(-2rem)' 
+          },
+          'to': {
+            opacity : '1'
+          }
+        },
+        fadeOut: {
+          'from': {
+            opacity : '1'
+          },
+          'to': {
+            opacity : '0'
+          }
+        },
         push: {
           '0%': { transform: 'scale(1.0)' },
           '100%': { transform: 'scale(1.025)' },

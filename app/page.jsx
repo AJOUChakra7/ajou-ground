@@ -1,3 +1,4 @@
+
 'use client';
 import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
