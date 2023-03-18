@@ -41,3 +41,7 @@ caption {
   align-items: center;
   justify-content: center;
 }
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}

@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import { useState } from 'react';
+import useModal from './useModal';
 
-export default function Modal({status, content}){
-    const [showModal, setShowModal] = useState(false)
-    const [showSecondModal, setShowSecondModal] = useState(false)
-    return(
-    <div classNmae = "fixed flex md:flex-col justify-center items-center mt-40">
-        {
-            showModal ? (
-            <div className= "fixed mt-10 flex justify-center items-center flex-col w-72 rounded-lg shadow-xl h-auto p-2">
-                <h2 className="text-base mt-2 mx-4 text-gray-400 font-semibold text-center">May your life vbe filled with success and achivements. congratulations!</h2>
-                <button className="my-5 w-auto px-8 h-10 bg-blue-600 text-white rounded-md shadow hover:shadow-lg font=semibold" onClick={()=>setShowModal(false)}>close</button>
-            </div>):null
-        }
-    </div>
-    )
+export default function Modal(props) {
+  const { title, subTitle, selected } = props;
+
+  const dialog = document.querySelector('dialog');
+  const { closeModal } = useModal(dialog);
+
+  const confirmAction = () => {
+    selected();
+    closeModal();
+  }
+
+  return (
+    <dialog className="hidden rounded-md gap-2 w-1/2 full:w-[16rem] flex flex-col text-center justify-center items-center">
+      <h2 className="font-bold text-[22px] text-primary-main">{title}</h2>
+      <h3 className="font-400 text-[18px]">{subTitle}</h3>
+      <div className="flex text-[17px] justify-around w-full">
+        <button className="font-light" onClick={closeModal}>취소</button>
+        <button className="text-primary-main font-bold" onClick={confirmAction}>확인</button>
+      </div>
+    </dialog>
+  )
 }
 

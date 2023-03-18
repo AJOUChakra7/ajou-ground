@@ -9,6 +9,7 @@ import Spinner from '@components/Spinner/index';
 
 export default function Home() {
   const [loadingState, setLoadingState] = useState(true);
+
   useEffect(() => {
     setTimeout(() =>{
       setLoadingState(false);

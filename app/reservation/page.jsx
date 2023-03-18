@@ -11,6 +11,7 @@ import { Icon } from '@iconify/react';
 import Link from 'node_modules/next/link';
 
 import Modal from '@components/Modal/index';
+import useModal from '@components/Modal/useModal';
 
 export default function Reservation() {
   const [value, setValue] = useState(new Date()); //오늘 날짜로 처음 세팅
@@ -41,6 +42,10 @@ export default function Reservation() {
         }
       });
   };
+
+  const dialog = document.querySelector('dialog');
+  const { openModal } = useModal(dialog);
+
   const reservation = async () => {
     //날짜 누르면 해당 날짜에 대한 예약 정보 날아옴
     await axios
@@ -90,6 +95,10 @@ export default function Reservation() {
 
   return (
     <main>
+      <Modal selected={() => {
+        reservation();
+        window.location.replace('/');
+      }} />
       <div className="mt-4">
         <Link href="/" className="text-2xl font-bold">
           <Icon icon="material-symbols:arrow-back-ios-rounded" width={18} height={18} />
@@ -135,7 +144,7 @@ export default function Reservation() {
       </div>
       <button 
         disabled={reserveTime!="Invalid Date"?false:true} 
-        onClick={reservation}
+        onClick={openModal}
         className={reserveTime!="Invalid Date"?"rounded-lg bg-blue-600 w-full h-10 mt-3 text-center text-white text-lg font-bold":"rounded-lg bg-neutral-200 w-full h-10 mt-3 text-center text-white text-lg font-bold"}>
         예약하기
       </button>
