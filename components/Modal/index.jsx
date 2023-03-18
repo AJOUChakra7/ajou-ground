@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import useModal from './useModal';
 
 export default function Modal(props) {
   const { title, subtitle, subtitle2, subtitle3, selected } = props;
-
-  const dialog = document.querySelector('dialog');
+  const [dialog, setDialog] = useState('')
   const { closeModal } = useModal(dialog);
+  useEffect(() => {
+    setDialog(document.querySelector('dialog'))
+  }, []);
 
   const confirmAction = () => {
     selected();

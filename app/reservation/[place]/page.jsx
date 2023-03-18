@@ -20,30 +20,21 @@ export default function Reservation({ params }) {
   const [selectedTime, setSelectedTime] = useState(null);
   const [getTime, setGetTime] = useState(null);
   const [reserveTime, setReserveTime] = useState(null);
-
+  const [dialog, setDialog] = useState(null)
+  const [reserveComplete,setReserveComplete] = useState(false)
   // 한글로 된 장소(params.place)
-  const placeInKorean = placeToKorean(params.place);
+  const [placeInKorean, setPlaceInKorean] = useState('')
 
   const getDatereservation = async () => {
     //날짜 누르면 해당 날짜에 대한 예약 정보 날아옴 ${getTime}
     await axios.get(`/api/reservation?date=${getTime}`).then((response) => {
-      console.log(response.data);
-      if (response.data['9']) {
-        setNine(false);
-      }
-      if (response.data['12']) {
-        setTwelve(false);
-      }
-      if (response.data['15']) {
-        setThree(false);
-      }
-      if (response.data['18']) {
-        setSix(false);
-      }
+      response.data['9']?setNine(false):setNine(true)
+      response.data['12']?setTwelve(false):setTwelve(true)
+      response.data['15']?setThree(false):setThree(true)
+      response.data['18']?setSix(false):setSix(true)
     });
   };
 
-  const dialog = document.querySelector('dialog');
   const { openModal } = useModal(dialog);
 
   const reservation = async () => {
@@ -51,14 +42,24 @@ export default function Reservation({ params }) {
     await axios
       .post('/api/reservation', {
         startTime: reserveTime,
-        ground: { placeInKorean },
+        ground:  "대운동장",
       })
       .then((response) => {
-        getDatereservation();
         console.log(response);
+        setReserveComplete(true)
       });
   };
+  useEffect(() => {
+    setDialog(document.querySelector('dialog'))
+    setPlaceInKorean(params.place)
+  }, []);
 
+  useEffect(() => {
+    if (reserveComplete==true){
+      window.location.replace('/');
+    }
+  }, [reserveComplete]);
+  
   useEffect(() => {
     //날짜 눌렀을 경우 읽어 오기 위해 날짜 포맷팅
     setReserveTime('Invalid Date');
@@ -68,10 +69,6 @@ export default function Reservation({ params }) {
     if (m < 10) {
       m = '0' + m;
     }
-    setNine(true);
-    setSix(true);
-    setThree(true);
-    setTwelve(true);
     setGetTime(`${y}-${m}-${d}`);
   }, [value]);
 
@@ -108,12 +105,11 @@ export default function Reservation({ params }) {
       <Modal 
         title="예약 정보가 맞나요?"
         subtitle="대운동장"
-        subtitle2="15:00 ~ 18:00"
-        subtitle3="2022-03-18"
+        subtitle2={`${selectedTime}시~${selectedTime+3}시 `}
+        subtitle3={getTime}
         selected={() => {
         localStorage.setItem('reservationState', true);
         reservation();
-        window.location.replace('/');
       }} />
       <Header />
       <ImgAndDesc
