@@ -2,14 +2,22 @@
 'use client';
 import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
-import { Inter } from 'next/font/google';
 import Footer from 'components/Footer'
 
-const inter = Inter({ subsets: ['latin'] });
+import { useEffect, useState } from 'react';
+import Spinner from '@components/Spinner/index';
 
 export default function Home() {
+  const [loadingState, setLoadingState] = useState(true);
+  useEffect(() => {
+    setTimeout(() =>{
+      setLoadingState(false);
+    }, 100 * Math.floor(Math.random() * 20))
+  }, [])
+
   return (
     <>
+    {loadingState && (<Spinner/>)}
     <main className="bg-[#fafafa]">
       <div className="my-10">
         <h2 className="font-bold my-3">이용 현황</h2>
