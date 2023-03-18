@@ -5,9 +5,14 @@ import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
 import Footer from 'components/Footer';
 
+import Image from 'node_modules/next/image';
+
 import { useEffect, useState } from 'react';
 import Spinner from '@components/Spinner/index';
 import ToastMessage from '@components/Toast/index';
+
+import Lottie from "react-lottie-player";
+import weightJson from "../public/weight.json";
 
 export default function Home() {
   const [loadingState, setLoadingState] = useState(true);
@@ -31,7 +36,10 @@ export default function Home() {
         <ToastMessage message="예약이 완료되었습니다" type="success" />
       )}
       <main className="bg-[#fafafa]">
-        <div className="my-10">
+        <span className="mx-auto">
+          <Lottie loop animationData={weightJson} style={{ margin : "0 auto", width : 100, height : 100}} play />;
+        </span>
+        <div className="">
           <h2 className="font-bold my-3">이용 현황</h2>
           <div className="grid grid-cols-2 gap-2 my-3">
             <PlaceStatusBox title="대운동장" status={1} />
