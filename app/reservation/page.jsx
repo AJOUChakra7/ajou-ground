@@ -124,7 +124,7 @@ export default function Reservation() {
       </div>
       <button 
         disabled={reserveTime!="Invalid Date"?false:true} 
-        onClick={}
+        onClick={reservation()}
         className={reserveTime!="Invalid Date"?"rounded-lg bg-blue-600 w-full h-10 mt-3 text-center text-white text-lg font-bold":"rounded-lg bg-neutral-200 w-full h-10 mt-3 text-center text-white text-lg font-bold"}>
         예약하기
       </button>
