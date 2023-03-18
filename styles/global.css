@@ -24,7 +24,12 @@ main {
   height : var(--vh);
   max-height : var(--vh);
   
-  padding : 0 1rem;
+  padding : 1rem;
+  padding-bottom : 6rem;
+}
+
+main::-webkit-scrollbar {
+  display: none;
 }
 
 :root {

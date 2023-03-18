@@ -117,7 +117,7 @@ export default function Reservation({ params }) {
         reservation();
         window.location.replace('/');
       }} />
-      <div className="mt-4">
+      <div className="">
         <Link href="/" className="text-2xl font-bold">
           <Icon icon="material-symbols:arrow-back-ios-rounded" width={18} height={18} />
         </Link>

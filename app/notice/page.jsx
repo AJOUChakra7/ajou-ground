@@ -43,7 +43,7 @@ export default function Notice() {
   ];
   return (
     <>
-    <main className="pt-4 bg-[#fafafa] overflow-scroll">
+    <main className="bg-[#fafafa] overflow-scroll">
       <Link href="/" className="text-2xl font-bold">
         <Icon icon="material-symbols:arrow-back-ios-rounded" width={18} height={18} />
       </Link>
