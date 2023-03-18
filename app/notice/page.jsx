@@ -20,6 +20,7 @@ export default function Notice() {
     },
   ];
 
+  // 예시 사용기록 데이터
   const exampleReservationHistoryList = [
     {
       place: '대운동장',
