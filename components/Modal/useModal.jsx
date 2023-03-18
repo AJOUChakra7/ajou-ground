@@ -1,7 +1,7 @@
 export default function useModal(dialog) {
   const openModal = () => {
     dialog.showModal();
-    dialog.style.display = 'block';
+    dialog.style.display = 'flex';
   }
 
   const closeModal = () => {

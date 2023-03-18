@@ -6,9 +6,11 @@ import Footer from 'components/Footer'
 
 import { useEffect, useState } from 'react';
 import Spinner from '@components/Spinner/index';
+import ToastMessage from '@components/Toast/index';
 
 export default function Home() {
   const [loadingState, setLoadingState] = useState(true);
+  const successReservationState = localStorage.getItem('reservationState');
 
   useEffect(() => {
     setTimeout(() =>{
@@ -19,6 +21,7 @@ export default function Home() {
   return (
     <>
     {loadingState && (<Spinner/>)}
+    {!loadingState && successReservationState && (<ToastMessage message="예약이 완료되었습니다" type="success" />)}
     <main className="bg-[#fafafa]">
       <div className="my-10">
         <h2 className="font-bold my-3">이용 현황</h2>

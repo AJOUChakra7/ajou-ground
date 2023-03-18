@@ -25,6 +25,7 @@ export const ToastMessage= (props) => {
     setAnimationState('fadeOut');
     setTimeout(() => {
       setMessageState(false);
+      localStorage.clear();
       setAnimationState('fadeIn');
     }, 350);
   }, [message, type]);

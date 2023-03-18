@@ -95,7 +95,13 @@ export default function Reservation() {
 
   return (
     <main>
-      <Modal selected={() => {
+      <Modal 
+        title="예약 정보가 맞나요?"
+        subtitle="대운동장"
+        subtitle2="15:00 ~ 18:00"
+        subtitle3="2022-03-18"
+        selected={() => {
+        localStorage.setItem('reservationState', true);
         reservation();
         window.location.replace('/');
       }} />
