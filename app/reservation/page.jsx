@@ -5,7 +5,13 @@ import { DatePicker } from '@mantine/dates';
 import axios from 'axios';
 import ReservationBtn from 'components/ReservationBtn/index';
 import ImgAndDesc from 'components/ImgAndDesc/index';
+
+
+import { Icon } from '@iconify/react';
+import Link from 'node_modules/next/link';
+
 import Modal from '@components/Modal/index';
+
 export default function Reservation() {
   const [value, setValue] = useState(new Date()); //오늘 날짜로 처음 세팅
   const [nine, setNine] = useState(true);
@@ -84,12 +90,17 @@ export default function Reservation() {
 
   return (
     <main>
+      <div className="mt-4">
+        <Link href="/" className="text-2xl font-bold">
+          <Icon icon="material-symbols:arrow-back-ios-rounded" width={18} height={18} />
+        </Link>
+      </div>
       <ImgAndDesc imgURL="./bigground.jpeg" title="대운동장" desc="아주대학교 대운동장"/>
       <Group position="center">
         <DatePicker value={value} onChange={setValue} />
       </Group>
       <div className="shadow">
-      <h2 className="font-bold text-lg">시간 예약</h2>
+      <h2 className="my-4 mt-8 font-bold text-lg">시간 예약</h2>
       <div className="grid grid-cols-2 gap-3">
         {}
         <ReservationBtn
