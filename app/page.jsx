@@ -1,8 +1,7 @@
-
 'use client';
 import LinkBox from 'components/LinkBox/index';
 import PlaceStatusBox from 'components/PlaceStatusBox/index';
-import Footer from 'components/Footer'
+import Footer from 'components/Footer';
 
 import { useEffect, useState } from 'react';
 import Spinner from '@components/Spinner/index';
@@ -13,13 +12,14 @@ export default function Home() {
   const successReservationState = localStorage.getItem('reservationState');
 
   useEffect(() => {
-    setTimeout(() =>{
+    setTimeout(() => {
       setLoadingState(false);
-    }, 100 * Math.floor(Math.random() * 20))
-  }, [])
+    }, 100 * Math.floor(Math.random() * 20));
+  }, []);
 
   return (
     <>
+<<<<<<< HEAD
     {loadingState && (<Spinner/>)}
     {!loadingState && successReservationState && (<ToastMessage message="예약이 완료되었습니다" type="success" />)}
     <main className="bg-[#fafafa]">
@@ -30,20 +30,31 @@ export default function Home() {
           <PlaceStatusBox title="소운동장" status={0} />
           <PlaceStatusBox title="헬스장" status={0} />
           <PlaceStatusBox title="테니스장" status={2} />
+=======
+      {loadingState && <Spinner />}
+      <main className="bg-[#fafafa]">
+        <div className="my-10">
+          <h2 className="font-bold my-3">이용 현황</h2>
+          <div className="grid grid-cols-2 gap-2 my-3">
+            <PlaceStatusBox title="대운동장" status={1} />
+            <PlaceStatusBox title="소운동장" status={0} />
+            <PlaceStatusBox title="헬스장" status={0} />
+            <PlaceStatusBox title="테니스장" status={2} />
+          </div>
+>>>>>>> main
         </div>
-      </div>
 
-      <div className="my-10">
-        <h2 className="font-bold my-3">장소 예약</h2>
-        <div className="my-3 flex flex-col gap-4">
-          <LinkBox title="대운동장" icon="noto-v1:soccer-ball" />
-          <LinkBox title="소운동장" icon="noto-v1:soccer-ball" />
-          <LinkBox title="헬스장" icon="map:gym" />
-          <LinkBox title="테니스장" icon="openmoji:tennis" />
+        <div className="my-10">
+          <h2 className="font-bold my-3">장소 예약</h2>
+          <div className="my-3 flex flex-col gap-4">
+            <LinkBox place="big-ground" icon="noto-v1:soccer-ball" />
+            <LinkBox place="small-ground" icon="noto-v1:soccer-ball" />
+            <LinkBox place="health-gym" icon="map:gym" />
+            <LinkBox place="tennis" icon="openmoji:tennis" />
+          </div>
         </div>
-      </div>
-    </main>
-    <Footer />
+      </main>
+      <Footer />
     </>
   );
 }
