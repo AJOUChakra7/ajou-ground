@@ -4,7 +4,7 @@ export default function MyReservationDisplayCard({ reservationDataList }) {
       {/* 예약한 것이 있을때 */}
       {reservationDataList.map((oneReservationData, index) => {
         return (
-          <div className="rounded my-3 shadow p-4" id={index}>
+          <div className="bg-white rounded my-3 shadow p-4" id={index} key={index}>
             <h2 className="font-bold text-lg text-blue-900">{oneReservationData.place}</h2>
             <h3>
               {oneReservationData.time}:00 ~ {oneReservationData.time + 3}:00
