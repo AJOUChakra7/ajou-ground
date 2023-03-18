@@ -5,6 +5,7 @@ import { DatePicker } from '@mantine/dates';
 import axios from 'axios';
 import ReservationBtn from 'components/ReservationBtn/index';
 import ImgAndDesc from 'components/ImgAndDesc/index';
+import Modal from '@components/Modal/index';
 export default function Reservation() {
   const [value, setValue] = useState(new Date()); //오늘 날짜로 처음 세팅
   const [nine, setNine] = useState(true);
@@ -123,7 +124,7 @@ export default function Reservation() {
       </div>
       <button 
         disabled={reserveTime!="Invalid Date"?false:true} 
-        onClick={reservation} 
+        onClick={}
         className={reserveTime!="Invalid Date"?"rounded-lg bg-blue-600 w-full h-10 mt-3 text-center text-white text-lg font-bold":"rounded-lg bg-neutral-200 w-full h-10 mt-3 text-center text-white text-lg font-bold"}>
         예약하기
       </button>
